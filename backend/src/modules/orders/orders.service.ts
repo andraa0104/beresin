@@ -17,6 +17,10 @@ import {
   OrderStatus,
   OrderItemType,
   CartItem,
+  Promotion,
+  PromotionStatus,
+  TargetUser,
+  DiscountType,
 } from '../../database/entities/entities';
 import { CartService } from '../cart/cart.service';
 import { AnalyticsService } from '../analytics/analytics.service';

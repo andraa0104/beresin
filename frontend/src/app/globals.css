@@ -1,0 +1,225 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-base: #f8fafc;
+    --bg-surface: #ffffff;
+    --bg-elevated: #f1f5f9;
+    --bg-glass: rgba(255, 255, 255, 0.72);
+    --bg-glass-strong: rgba(255, 255, 255, 0.88);
+    --bg-glass-subtle: rgba(255, 255, 255, 0.45);
+    
+    --fg-primary: #0f172a;
+    --fg-secondary: #334155;
+    --fg-muted: #64748b;
+    --fg-subtle: #94a3b8;
+    --fg-inverse: #ffffff;
+
+    --brand-primary: #0284c7;
+    --brand-primary-hover: #0369a1;
+    --brand-light: #e0f2fe;
+    --brand-gradient: linear-gradient(135deg, #0284c7 0%, #2563eb 50%, #4f46e5 100%);
+    --brand-accent: #0ea5e9;
+
+    --status-success: #10b981;
+    --status-success-bg: rgba(16, 185, 129, 0.1);
+    --status-success-border: rgba(16, 185, 129, 0.25);
+    
+    --status-warning: #f59e0b;
+    --status-warning-bg: rgba(245, 158, 11, 0.1);
+    --status-warning-border: rgba(245, 158, 11, 0.25);
+
+    --status-destructive: #ef4444;
+    --status-destructive-bg: rgba(239, 68, 68, 0.1);
+    --status-destructive-border: rgba(239, 68, 68, 0.25);
+
+    --status-info: #3b82f6;
+    --status-info-bg: rgba(59, 130, 246, 0.1);
+    --status-info-border: rgba(59, 130, 246, 0.25);
+
+    --border-glass: rgba(255, 255, 255, 0.6);
+    --border-subtle: rgba(226, 232, 240, 0.8);
+    --border-strong: #cbd5e1;
+
+    --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+    --shadow-floating: 0 20px 40px -15px rgba(0, 0, 0, 0.08);
+    --shadow-glow: 0 0 25px rgba(2, 132, 199, 0.25);
+
+    --focus-ring: rgba(2, 132, 199, 0.4);
+    --radius-sm: 0.5rem;
+    --radius-md: 0.875rem;
+    --radius-lg: 1.25rem;
+    --radius-xl: 1.75rem;
+    --radius-full: 9999px;
+  }
+
+  .dark {
+    --bg-base: #070d18;
+    --bg-surface: #0f172a;
+    --bg-elevated: #1e293b;
+    --bg-glass: rgba(15, 23, 42, 0.72);
+    --bg-glass-strong: rgba(15, 23, 42, 0.88);
+    --bg-glass-subtle: rgba(15, 23, 42, 0.45);
+    
+    --fg-primary: #f8fafc;
+    --fg-secondary: #cbd5e1;
+    --fg-muted: #94a3b8;
+    --fg-subtle: #64748b;
+    --fg-inverse: #0f172a;
+
+    --brand-primary: #38bdf8;
+    --brand-primary-hover: #0284c7;
+    --brand-light: rgba(56, 189, 248, 0.15);
+    --brand-gradient: linear-gradient(135deg, #38bdf8 0%, #3b82f6 50%, #6366f1 100%);
+    --brand-accent: #60a5fa;
+
+    --status-success: #34d399;
+    --status-success-bg: rgba(52, 211, 153, 0.12);
+    --status-success-border: rgba(52, 211, 153, 0.3);
+    
+    --status-warning: #fbbf24;
+    --status-warning-bg: rgba(251, 191, 36, 0.12);
+    --status-warning-border: rgba(251, 191, 36, 0.3);
+
+    --status-destructive: #f87171;
+    --status-destructive-bg: rgba(248, 113, 113, 0.12);
+    --status-destructive-border: rgba(248, 113, 113, 0.3);
+
+    --status-info: #60a5fa;
+    --status-info-bg: rgba(96, 165, 250, 0.12);
+    --status-info-border: rgba(96, 165, 250, 0.3);
+
+    --border-glass: rgba(255, 255, 255, 0.1);
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-strong: rgba(255, 255, 255, 0.18);
+
+    --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    --shadow-floating: 0 20px 40px -15px rgba(0, 0, 0, 0.4);
+    --shadow-glow: 0 0 30px rgba(56, 189, 248, 0.2);
+
+    --focus-ring: rgba(56, 189, 248, 0.4);
+  }
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+  text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--bg-base);
+  color: var(--fg-primary);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  min-height: 100dvh;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+  overflow-x: hidden;
+  transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1), color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Beresin Liquid Classes */
+.liquid-glass {
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid var(--border-glass);
+  box-shadow: var(--shadow-glass);
+}
+
+.liquid-glass-strong {
+  background: var(--bg-glass-strong);
+  backdrop-filter: blur(24px) saturate(200%);
+  -webkit-backdrop-filter: blur(24px) saturate(200%);
+  border: 1px solid var(--border-glass);
+  box-shadow: var(--shadow-floating);
+}
+
+.liquid-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s ease;
+}
+
+.dark .liquid-card {
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.25);
+}
+
+.liquid-card-interactive {
+  cursor: pointer;
+}
+
+.liquid-card-interactive:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -4px rgba(0, 0, 0, 0.09);
+  border-color: var(--brand-primary);
+}
+
+.dark .liquid-card-interactive:hover {
+  box-shadow: 0 12px 30px -4px rgba(0, 0, 0, 0.4);
+}
+
+.liquid-card-interactive:active {
+  transform: scale(0.985);
+}
+
+.floating-bottom-nav {
+  position: fixed;
+  bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(calc(100% - 2rem), 480px);
+  z-index: 40;
+  border-radius: var(--radius-full);
+}
+
+.floating-top-bar {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 30;
+}
+
+/* Touch Target Standards */
+.touch-target {
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Smooth custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--fg-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
