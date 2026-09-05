@@ -42,6 +42,12 @@ import { UploadModule } from './modules/upload/upload.module';
         entities: ALL_ENTITIES,
         synchronize: false, // Schema managed via beresin_schema.sql
         logging: configService.get<string>('nodeEnv') === 'development' ? ['error', 'warn'] : false,
+        extra: {
+          connectionLimit: 10,
+          connectTimeout: 60000,
+          enableKeepAlive: true,
+          keepAliveInitialDelay: 10000,
+        },
       }),
       inject: [ConfigService],
     }),
